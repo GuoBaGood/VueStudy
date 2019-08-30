@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+        	作者：hxl963369@163.com
+        	时间：2018-12-07
+        	描述：学习Vue的组件，据说是其最强大的功能,暂时没领悟其作用！
+        -->
+		        	    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+
+	</head>
+	<body>
+		
+		<div id="d1">
+			<div id="dd1">
+				<span>{{ok1}}</span>
+			</div>
+			<div id="dd2">
+				<span>{{ok2}}</span>
+			</div>
+			<div id="dd3">
+				<span>{{ok3}}</span>
+			</div>
+		</div>
+	</body>
+	
+	<script>
+		var  a = new Vue({
+			el:"#d1",
+			data:{
+				ok1:"大家好",
+				ok2:"大家好123",
+				ok3:"大家好456",
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+        	作者：hxl963369@163.com
+        	时间：2018-11-16
+        	描述：研究v-model的属性uy
+        -->
+        	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+
+	</head>
+	<body>
+        <!--输入框-->
+		<div id="i1">
+			<input v-model="k1" />
+			<p>{{k1}}</p>
+			<br />
+			<span>{{qw}}</span>
+			<input v-model.trim="qw" />  
+		</div>
+		
+		<!--选择框-->
+		<div id="i2">
+			<select v-model="select">
+				<option>第一</option>
+				<option>第二</option>
+			</select>
+			<span>{{select}}</span>
+		</div>
+		
+		<!--单选按钮-->
+		
+		<script>
+			var d = new Vue({
+				el:"#i1",
+				data:{
+					k1:"",
+					qw:""
+				}
+			})
+			
+			
+			var select = new Vue({
+				el:"#i2",
+				data:{
+					select:""
+				}
+			}) 
+		</script>
+	</body>
+</html>
+
+<!--
+	运行结果：
+	输入文本框的内容，p标签的内容也跟着改变；
+	
+	********************************************
+	总结：
+	1.在input中进行v-model="text",实际上是等同于：
+		<input :value="text" @input="text=$event.target.value" />
+		实际上是给该input标签给了一个input的监听事件；
+-->

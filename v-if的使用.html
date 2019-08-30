@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+        	作者：hxl963369@163.com
+        	时间：2018-11-19
+        	描述：学习v-if的使用；
+        -->
+		<meta charset="UTF-8">
+		<title></title>
+	    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+	</head>
+	
+	<body>
+		<div id="hhh">
+			<p v-if="okj">大家好gg g </p>
+			<div v-html="sd"></div>
+			<input v-model="kk"/>
+			<p>{{kk}}</p>
+		</div>
+		<div id="ddd">
+			<div v-if="Math.random>0.5">待见</div>
+			<div v-else-if="2<5">dddd</div>
+		<div v-else>打点滴</div>
+		</div>
+		
+		<script>
+			var a = new Vue({
+				el:"#hhh",
+				data:{
+					okj:false,
+					sd:"<input/>",
+					kk:""
+				}
+			})
+			
+			var b = new Vue({
+				el:"#ddd"
+			})
+		</script>
+	</body>
+</html>
+<!--
+	运行结果：当okj的值为true时，页面有文字显示；为false，则无信息显示，不是隐藏标签，而是标签里面的内容；
+	************************************************
+	总结：
+	就是一定要注意data后面有个：号；
+	如果没有实例化则无法使用那些标签；
+-->

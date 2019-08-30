@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+	时间：2018年11月16日10:44:56
+	目的：1.往Vue实例中data属性进行赋值
+		  2.获取该实例的数据；
+		  3.Vue实例的属性与其他同名属性用$区分；
+-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="hh">
+			<span>{{s1}}</span>
+			<span>{{s2}}</span>
+		</div>
+		<input id="ip" />
+		<script>
+			var data1 = {s1:"大家好",s2:"hhh"};
+			var vm = new Vue({
+				el:"#hh",
+				data:data1,
+ 				 
+ 		}) 
+ 		document.write(vm.s1)
+ 		document.write(vm.$data == data1)
+		</script>
+	</body>
+</html>
+<!--
+	运行结果：
+	大家好 hhh
+	*******************
+	总结：
+	1.data实际上是个json的数组；
+	2.一旦实例化后可以获取实例里面的数据；
+	3.$区分Vue实例的属性和其他 同名属性
+	***************
+	注意！！
+	1.json字符串的格式
+-->

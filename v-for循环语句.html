@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+        	作者：hxl963369@163.com
+        	时间：2018-11-20
+        	描述：学习循环，感觉有点像list
+        -->
+        	    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+
+	</head>
+	<body>
+		
+		<div id="a">
+			<div v-for="sq in ss">
+				{{sq}}
+			</div>
+			<hr />
+			<div v-for="s in st">
+				{{s.name}}
+				
+			</div>
+			<hr />
+		</div>
+		
+		<div id="hk">
+			<div v-for="s in ob">
+				{{s}}
+			</div>
+			<hr />
+			<div v-for="(value,key) in ob">
+				{{key}}:{{value}}
+			</div>
+			<hr />
+			
+			<div v-for="(a,b,index) in ob">
+				{{index}}.{{b}}:{{a}}
+			</div>
+			<hr/>
+			<div v-for="a in 10"><span>{{a}}</span></div>
+		</div>
+		<script>
+			var d = new Vue({
+				el:"#a",
+				data:{
+					st:[{name:'12'},{name:'22'},{name:'33'}],
+					ss:[1,2,2,4]
+				}
+			})
+			
+			new Vue({
+				el:"#hk",
+				data:{
+					ob:{
+						name:"hhh",
+						dkkd:"sjdf"
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
+<!--
+	运行结果：12 22 33
+	注意：注意数据的格式;在使用（value，key）时，
+		value和key只是个名称，可以随便更改；但是无论名称怎么变，逗号前的值都是value，逗号后面的值才是key
+-->

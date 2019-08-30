@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+        	作者：hxl963369@163.com
+        	时间：2018-12-07
+        	描述：测试watch的监听事件，Observer, Watcher, vm 可谓 Vue 中比较重要的部分
+        -->
+        
+        		<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+
+	</head>
+	<body>
+		<div id="dd">
+			<span>{{mg}}</span>
+			<button @click="mg++">点击我</button>
+		</div>
+		
+		<div id="dd2" name="dd2">
+			<span>{{k}}</span>
+			<button v-on:click="jjj()">点击我吧</button>
+		</div>
+		
+	</body>
+	<script>
+		var a = new Vue({
+			el:"#dd",
+			data:{
+				mg:2
+			},
+		
+			
+		})
+		
+		var a2 = new Vue({
+			el:"#dd2",
+			data:{
+				k:"afb"
+			},
+			watch:{
+				k:function(){
+					alert(this.k);
+				}
+			},
+			methods:{
+				jjj:function(){
+					this.k=this.k+"ddd";
+				}
+			},
+		})
+		
+		a.$watch("mg",function(newD,oldD){
+			alert("第一个数字"+oldD+" "+"第二个数字"+newD)
+		})
+	</script>
+</html>
+<!--
+	总结：
+	1.a.$watch("mg",function(newD,oldD){...})中watch中有两个参数,
+	其中"mg"是指参数内容改变，然后出发昂function的方法，其中function中两个参数
+	第一个表示更改后的数据，第二个表示更改之前的数据；
+	2.watch有两种方法，一种是当成Vue的大属性，自动就调用了，另一种是在Vue的外面进行调用的；
+	具体怎么弄看需求吧；
+	3.watch的触动是对应的数据发生变化，否则不会触发；
+	
+	注意：
+	1.最好在每个大属性后面加上就逗号，不会报错的；
+	2.click也有两种方法了；
+	
+-->

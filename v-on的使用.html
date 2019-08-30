@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+        	作者：hxl963369@163.com
+        	时间：2018-12-07
+        	描述：学习v-on:click的点击事件的学习；关于点击事件的类型很多：
+        		只点击一次、表单的提交、
+        -->
+        
+                		<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="d2" class="d2">
+			<span>{{ok}}</span><br />
+			<button v-on:click.once="abc">只点击一次</button>
+			<br />
+			<button v-on:click.stop="abc">阻止冒泡事件</button>
+			<br />
+			<button @click="alert(123)"></button>
+		</div>
+		
+		<hr />
+		<!--事件冒泡-->
+		<div id="d1" onclick="alert('第一个div')" style="background-color: royalblue;height: 90px;width: 90px;">
+			<div id="d12" style="background-color: red;height: 50px;width: 50px;" v-on:click.stop="alert('第二个div')"></div>
+		</div>
+	</body>
+	<script>
+		var a = new Vue({
+			el:"#d2",
+			data:{
+				ok:"大家好",
+			},
+			methods:{
+				abc:function(){
+					alert(this.ok);
+				}
+			}
+			
+		})
+		
+		var a1 = new Vue({
+			el:"#d1",
+		})
+		
+		 
+	</script>
+	
+	<!--
+		
+		总结：
+		1.事件的冒泡:在d1的div中有一个OnClick点击事件，然后里面还有个div而且还有个点击事件；
+		发现点击d12时也会触发d1的事件所以会蹦出来两个提示框，这就是事件的冒泡；
+		2.将d12的点击事件改为v-on:click.stop事件，就能阻止冒泡事件只运行当前标签的事件；
+		3.v-on:相当于@
+		
+	-->
+</html>

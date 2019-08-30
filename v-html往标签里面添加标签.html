@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			时间：2018年11月16日11:01:59
+			目的：通过v-html属性往标签里面添加标签
+		-->
+	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="dd">
+			<div v-html="hh"></div>
+		</div>
+		<script>
+			var ha = new Vue({
+				el:"#dd",
+				data:{
+					hh:"<input/>"
+				}
+			})
+		</script>
+	</body>
+</html>
+<!--
+	运行结果：
+	页面出现输入框；
+	******************************
+	总结：
+	1.需要在要添加标签的标签里面添加属性“v-html”;
+	2.把它当成一种数据来处理：
+			data:{
+					hh:"<input/>"
+				}
+			})
+	注意：
+	记得加上v-html属性；
+-->

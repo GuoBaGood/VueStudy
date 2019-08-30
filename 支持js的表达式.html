@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+        	作者：hxl963369@163.com
+        	时间：2018-11-16
+        	描述：测试Vue对js的支持程度；
+        -->
+                        	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="dd">
+			{{2+3}}
+			{{ok?"hh":"dsf"}}
+		</div>
+		<script>
+			var a = new Vue({
+				el:"#dd",
+				data:{
+					ok:true
+				}
+			})
+		</script>
+	</body>
+</html>

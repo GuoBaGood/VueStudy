@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+        	作者：hxl963369@163.com
+        	时间：2018-12-06
+        	描述：就是操作那个data的值bf
+        -->
+		        <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+
+	</head>
+	<body>
+		<div id="d1">
+			<div>{{mg.split("o")}}</div>
+			<div>{{sk}}</div>
+			<div>{{k()}}</div>
+		</div>
+		<hr />
+		<div id="d2">
+			{{ok}}
+		</div>
+		
+		
+		<script>
+			new Vue({
+				el:"#d1",
+				data:{
+					mg:"slgjosso"
+				},
+				
+				computed:{
+					sk:function(){
+						return this.mg.split("s");
+					}
+				},
+				methods:{
+					k:function(){
+						return this.mg.split("s");
+					}
+				}
+			})
+		
+		var V2 = new Vue({
+			el:"#d2",
+			data:{
+				name:"ddd"
+			},
+			computed:{
+				ok:{
+					get:function(){
+						return this.name;
+					},
+					set:function(name){
+						this.name = name; 
+					}
+					
+				}
+			}
+			
+		})
+		
+		V2.ok="点击";
+		
+		</script>
+	</body>
+</html>
+<!--
+	d1的运行结果：
+	[ "slgj", "ss", "" ]
+	[ "", "lgjo", "", "o" ]
+	[ "", "lgjo", "", "o" ]
+	点击
+	总结：
+	1.computed属性就是专门用来对数据进行计算的；其用法有点像methods，当然也可以用methods；
+	二者的的区别是computed是基于缓存的，只有依赖的那个对象发生改变，才会重新取值；methods是在重新
+	渲染的时候，总是会调用；
+	2.计算属性sk的时候提供的函数将作用于sk的getter,并且会依赖于mg属性，当mg属性发生改变，sk的值才会改变；
+	3.computed会自动调用set和get方法，通过set进行赋值操作：		V2.ok="点击";
+	问题：
+	1.将数据的操作给予页面标签进行，结构不够分明；
+	2.记住在Vue的实例中大属性之间一定要有，隔开；
+	3.使用computed时，如果对get和set方法重写，格式为ok:{},请记住ok:后面是没有function的；
+	
+-->

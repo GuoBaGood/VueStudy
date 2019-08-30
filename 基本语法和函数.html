@@ -1,0 +1,66 @@
+<!--
+	时间：2018年11月16日10:21:50
+	目的：基本语法测试
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>测试语法和函数</title>
+<script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <p>第一个数据：{{firstData}}</p>
+  <p>第二个数据：{{secondData}}</p>
+  <p>第三个数据：{{ter()}}</p>
+  <p>{{pd.ff}}</p>
+</div>
+​
+<script>
+ 	
+ 	var vm = new Vue({
+ 		el:"#app",
+ 		data:{
+ 			firstData:"你们reeg好",
+ 			secondData:"汗啊",
+ 			ddd:2,
+ 			pd:{
+ 				ok:"fdfd",
+ 			
+ 			}
+ 		},
+ 		methods:{
+ 			ter:function(){
+ 				return this.ddd +"方法哦";
+ 			}
+ 		}
+ 	})
+</script>
+</body>
+</html>
+<!--
+总结：
+1.el:"#id"表示el是放置块元素的id的；div外部并不受影响；
+2.每个Vue的应用要通过实例化的；
+3.data相当于一个json数组，存放数据，数据可以是字符串可以是数字；
+4.methods存放方法；
+5.数据在标签中放在{{}}双括号中；
+***********************
+注意！！
+1.逗号别忘了，块与块之间有逗号，数据与数据之间有逗号，最后一个数据无逗号
+2.
+ methods:{
+		 	details:function(){
+		 		return this.ls();
+		 },
+				ls:function(){
+		 		return this.d+"王八蛋";
+		 }
+		 }
+	
+-->
+
+
+ 
+

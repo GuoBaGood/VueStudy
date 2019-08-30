@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+        	作者：hxl963369@163.com
+        	时间：2018-11-16
+        	描述：掌握v-bind的用法；
+        -->
+                	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+
+	<style>
+		.realClass {
+			color:red;
+		}
+		
+		.b{
+			background-color: blue;
+			width:33px;
+			height: 33px;
+		}
+		
+		.a {
+			background-color: red;
+			width:12px;
+			height: 12px;
+		}
+		
+		.sbox {
+			height: 12px;
+			width: 33px;
+			background-color: brown;
+		}
+		
+		.t1 {
+			height: 123px;
+			width: 222px;
+			background-color: green;
+		}
+		
+		
+		
+	</style>
+	</head>
+	<body>
+		<div id="hh">
+			<div :class="{sbox: b5}" >大姐姐</div>
+			
+			<div :class="{t1: t1}">测试</div>
+			<label for='r1'></label>
+			<input type="checkbox" id="r1" v-model="re" />
+			<div v-bind:class="{'realClass':re}">
+				sjflsfdfjslfdlslf
+			</div>
+			<div v-bind:class="{'a':ok1,'b':ok2}"></div>
+			<hr />
+			<div v-bind:class="dddd"></div>
+			
+			<hr />
+			<div class="b a"></div>
+			<button  v-on:click="dianj"></button>
+			
+			<span>{{params.kk}}</span>
+		</div>
+		
+		<script>
+			var a = new Vue({
+				el:"#hh",
+				data:{
+					re:false,
+					ok1:true,
+					ok2:true,
+					b5:true,
+					params:{
+						
+					}
+					dddd:{
+					b:true,
+					a:true,
+					}
+				},
+				methods:{
+					dianj:function(){
+						this.re = true;
+						this.params.kk = "fff"
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
+<!--
+	运行结果：
+	选择单选框，字体变红；不选中，字体变黑；
+	***********************************************
+	总结：
+	1.通过v-model对单选框弄一个监听事件；
+	2.使用v-bind：class判断 class1 的值，如果为 true 使用 realClass类的样式，否则不使用该类样式
+	3.刚开始re的值为false，则div不使用那个样式；点击单选框值为true，使用该样式；
+	
+	4.多个属性的时候，其实属性具有继承性，如果后者的同样属性发生改变将会覆盖前一个相同的属性值，以此类推；
+	5.注意，必须注意的是：
+		多个属性时，他的属性的属性跟写的属性没有毛线关系，与<style></style>中的顺序有关；
+		就是说如果a在前b在后无论怎么写的顺序均为<style></style>里面的顺序；
+-->
